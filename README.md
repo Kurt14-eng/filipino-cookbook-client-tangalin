@@ -1,4 +1,4 @@
-# Sarap Atlas - Filipino Cookbook Client
+#Filipino Cookbook API
 
 Sarap Atlas is a responsive web client that consumes a classmate-developed Filipino Cookbook API. It turns JSON food records into searchable recipe cards and readable detail views without connecting directly to the API database.
 
@@ -27,18 +27,6 @@ Sarap Atlas is a responsive web client that consumes a classmate-developed Filip
 - Fetch API
 - Node.js
 - Git and GitHub
-
-## API Source and Acknowledgment
-
-This client uses the Filipino Cookbook API developed by classmate Louise Sanchez.
-
-- Developer: **Louise Sanchez**
-- GitHub username: **louise-jpg**
-- API repository: **https://github.com/louise-jpg/filipino-cookbook-api-sanchez**
-- API base URL: **http://localhost:8080**
-- Authentication: **Bearer token**
-
-The API is used for educational purposes with the permission of the developer. The same developer name and repository URL are prefilled in the application’s **API setup** panel.
 
 ## Endpoints Used
 
