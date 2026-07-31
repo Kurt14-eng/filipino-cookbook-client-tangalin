@@ -143,8 +143,8 @@ For the final integration test:
 
 ## Developer Information
 
-- Student: **KURT TANGALIN**
-- Course and section: **BSIT 3C**
+- Student: **KURT RUSSEL TANGALIN**
+- Course and section: **BSIT 4B**
 - GitHub username: **Kurt14-eng**
 - Client repository: **https://github.com/Kurt14-eng/filipino-cookbook-client-tangalin**
 - Date completed: **2026-07-31**
