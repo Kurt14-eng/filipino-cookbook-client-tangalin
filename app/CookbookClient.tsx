@@ -24,8 +24,10 @@ const defaultSettings: SourceSettings = {
     "http://localhost:8080",
   token: "",
   developerName:
-    process.env.NEXT_PUBLIC_API_DEVELOPER || "[SELECTED CLASSMATE]",
-  repositoryUrl: process.env.NEXT_PUBLIC_API_REPOSITORY || "",
+    process.env.NEXT_PUBLIC_API_DEVELOPER || "Louise Sanchez",
+  repositoryUrl:
+    process.env.NEXT_PUBLIC_API_REPOSITORY ||
+    "https://github.com/louise-jpg/filipino-cookbook-api-sanchez",
 };
 
 function asText(value: unknown, fallback = ""): string {
@@ -38,6 +40,11 @@ function asId(value: unknown, fallback: number): number {
 }
 
 function normalizeIngredients(value: unknown): string[] {
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    const record = value as Record<string, unknown>;
+    if ("ingredients" in record) return normalizeIngredients(record.ingredients);
+  }
+
   if (Array.isArray(value)) {
     return value
       .map((item) => {
@@ -177,11 +184,14 @@ export default function CookbookClient() {
   }, [foods, search, category, origin]);
 
   async function apiRequest(path: string, source = settings): Promise<unknown> {
-    const response = await fetch(`${source.baseUrl}${path}`, {
+    const response = await fetch("/api/cookbook", {
+      method: "POST",
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${source.token}`,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({ baseUrl: source.baseUrl, path }),
     });
     let payload: unknown;
     try {
@@ -206,7 +216,7 @@ export default function CookbookClient() {
       ...draftSettings,
       baseUrl: draftSettings.baseUrl.trim().replace(/\/$/, ""),
       developerName:
-        draftSettings.developerName.trim() || "[SELECTED CLASSMATE]",
+        draftSettings.developerName.trim() || "Louise Sanchez",
     };
     if (!source.baseUrl || !source.token) {
       setError("Enter the API base URL and bearer token.");
@@ -305,7 +315,7 @@ export default function CookbookClient() {
   }
 
   const activeDeveloper =
-    mode === "live" ? settings.developerName : "[SELECTED CLASSMATE]";
+    mode === "live" ? settings.developerName : defaultSettings.developerName;
 
   return (
     <main>
