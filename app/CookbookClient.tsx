@@ -118,16 +118,20 @@ export default function CookbookClient() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const stored = window.sessionStorage.getItem("cookbook-api-settings");
-    if (!stored) return;
-    try {
-      const saved = JSON.parse(stored) as Partial<SourceSettings>;
-      const merged = { ...defaultSettings, ...saved, token: "" };
-      setSettings(merged);
-      setDraftSettings(merged);
-    } catch {
-      window.sessionStorage.removeItem("cookbook-api-settings");
-    }
+    const timer = window.setTimeout(() => {
+      const stored = window.sessionStorage.getItem("cookbook-api-settings");
+      if (!stored) return;
+      try {
+        const saved = JSON.parse(stored) as Partial<SourceSettings>;
+        const merged = { ...defaultSettings, ...saved, token: "" };
+        setSettings(merged);
+        setDraftSettings(merged);
+      } catch {
+        window.sessionStorage.removeItem("cookbook-api-settings");
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -703,4 +707,3 @@ export default function CookbookClient() {
     </main>
   );
 }
-

@@ -58,8 +58,8 @@ The client performs category, origin, and free-text filtering on the food list a
 1. Clone the client repository.
 
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/filipino-cookbook-client-YOUR_SURNAME.git
-   cd filipino-cookbook-client-YOUR_SURNAME
+   git clone https://github.com/Kurt14-eng/filipino-cookbook-client-tangalin.git
+   cd filipino-cookbook-client-tangalin
    ```
 
 2. Install dependencies.
@@ -142,9 +142,8 @@ For the final integration test:
 
 ## Developer Information
 
-- Student: **[YOUR FULL NAME]**
-- Course and section: **[YOUR COURSE AND SECTION]**
-- GitHub username: **[YOUR GITHUB USERNAME]**
-- Client repository: **https://github.com/YOUR_GITHUB_USERNAME/filipino-cookbook-client-YOUR_SURNAME**
-- Date completed: **2026-07-27**
-
+- Student: **KURT TANGALIN**
+- Course and section: **[ADD COURSE AND SECTION]**
+- GitHub username: **Kurt14-eng**
+- Client repository: **https://github.com/Kurt14-eng/filipino-cookbook-client-tangalin**
+- Date completed: **2026-07-31**
